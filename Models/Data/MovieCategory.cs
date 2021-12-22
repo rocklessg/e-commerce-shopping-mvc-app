@@ -11,6 +11,8 @@ namespace Models.Data
         Action,
         Comedy,
         Drama,
-        Documentary
+        Documentary,
+        Horror,
+        Cartoon
     }
 }
