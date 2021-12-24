@@ -15,8 +15,8 @@ namespace E_Shopping.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var cinemas = await _context.Cinemas.ToListAsync();
-            return View(cinemas);
+            var allCinemas = await _context.Cinemas.ToListAsync();
+            return View(allCinemas);
         }
     }
 }
