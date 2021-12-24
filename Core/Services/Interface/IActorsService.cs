@@ -9,9 +9,9 @@ namespace Core.Services.Interface
 {
     public interface IActorsService
     {
-        Task<IEnumerable<Actor>> GetAll();
-        Task<Actor> GetById();
-        void Add(Actor actor);
+        Task<IEnumerable<Actor>> GetAllAsync();
+        Task<Actor> GetByIdAsync(int id);
+        Task AddAsync(Actor actor);
         Task<Actor> Update(int id, Actor actor);
         void Delete(int id);
     }
