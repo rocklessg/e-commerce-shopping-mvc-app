@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class BaseEntity
+    public interface IEntityBase
     {
         public int Id { get; set; }
-        public string ProfilePictureUrl { get; set; }
-        public string FullName { get; set; }
-        public string Bio { get; set; }
     }
 }
