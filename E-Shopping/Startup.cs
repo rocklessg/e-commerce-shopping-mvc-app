@@ -1,3 +1,5 @@
+using Core.Services.Implementation;
+using Core.Services.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +30,9 @@ namespace E_Shopping
             // DbContext Configuration
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration
                 .GetConnectionString("DefaultConnectionStrings")));
+
+            //Services configuration
+            services.AddScoped<IActorsService, ActorsService>();
             services.AddControllersWithViews();
         }
 

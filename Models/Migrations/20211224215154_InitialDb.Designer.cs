@@ -10,33 +10,35 @@ using Models.Data;
 namespace Models.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211221221835_InitailDb")]
-    partial class InitailDb
+    [Migration("20211224215154_InitialDb")]
+    partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
+                .HasAnnotation("ProductVersion", "5.0.0");
 
             modelBuilder.Entity("Models.Actor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
+                        .UseIdentityColumn();
 
                     b.Property<string>("Bio")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("ProfilePictureURL")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -64,8 +66,7 @@ namespace Models.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
+                        .UseIdentityColumn();
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -86,8 +87,7 @@ namespace Models.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
+                        .UseIdentityColumn();
 
                     b.Property<int>("CinemaId")
                         .HasColumnType("int");
@@ -130,8 +130,7 @@ namespace Models.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
+                        .UseIdentityColumn();
 
                     b.Property<string>("Bio")
                         .HasColumnType("nvarchar(max)");
