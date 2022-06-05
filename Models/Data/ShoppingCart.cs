@@ -11,6 +11,7 @@ namespace Models.Data
 {
     public class ShoppingCart
     {
+        //Db dependency injection
         public AppDbContext _context { get; set; }
 
         public string ShoppingCartId { get; set; }
